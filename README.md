@@ -1,5 +1,5 @@
 # Voice_Assistant-
-The provided Python code implements a basic voice-controlled assistant using the SpeechRecognition, pyttsx3, pywhatkit, datetime, and Wikipedia libraries. Here's a summary of the code:
+
 <br>
 1. **Initialization:**  The code initializes the necessary libraries, including SpeechRecognition for voice input, pyttsx3 for text-to-speech conversion, and others.
 <br>
