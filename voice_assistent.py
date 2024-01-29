@@ -23,10 +23,9 @@ def input_instructions():
             listener.adjust_for_ambient_noise(source)  # Adjust for ambient noise
             speech = listener.listen(source, timeout=5, phrase_time_limit=5)  # Add timeouts
             print("Recognizing...")
-            instructions = listener.recognize_google(speech)
-            instructions = instructions.lower()
+            instructions = listener.recognize_google(speech).lower()
             if "jarvis" in instructions:
-                instructions = instructions.replace('jarvis', '')
+                instructions = instructions.replace('jarvis', '').strip()
                 print(instructions)
     except sr.UnknownValueError:
         print("Could not understand audio")
@@ -41,7 +40,7 @@ def play_jarvis():
         print(instructions)
 
         if "play" in instructions:
-            song = instructions.replace('play', '')
+            song = instructions.replace('play', '').strip()
             talk("Playing " + song)
             pywhatkit.playonyt(song)
         elif 'time' in instructions:
@@ -55,7 +54,7 @@ def play_jarvis():
         elif 'what is your name' in instructions:
             talk('I am Jarvis, your assistant. What can I do for you?')
         elif 'who is' in instructions:
-            person = instructions.replace('who is', '')
+            person = instructions.replace('who is', '').strip()
             info = wikipedia.summary(person, 1)
             print(info)
             talk(info)
